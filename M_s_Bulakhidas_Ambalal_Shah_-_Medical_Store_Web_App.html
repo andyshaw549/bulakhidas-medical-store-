@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M/s Bulakhidas Ambalal Shah - NO.2 | Medical & Provision Store</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        brandRed: '#e11d48',
+                        brandBlue: '#1e40af',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(13, 148, 136, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen pb-20 md:pb-0">
+
+    <!-- TOP HEADER BAR -->
+    <div class="bg-medical-900 text-white text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span><i class="fa-solid fa-location-dot text-teal-400 mr-1"></i> Dehgam, Dist. Gandhinagar</span>
+                <span class="hidden md:inline">|</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-clock text-teal-400 mr-1"></i> Open Daily: 8:00 AM - 9:30 PM</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="tel:+919825511156" class="hover:text-teal-300 transition-colors"><i class="fa-solid fa-phone mr-1"></i> Rajeshbhai: +91 9825511156</a>
+                <span>|</span>
+                <a href="tel:+919825135409" class="hover:text-teal-300 transition-colors"><i class="fa-solid fa-phone mr-1"></i> Tapanbhai: +91 98251 35409</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 glass-nav border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Branding / Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-teal-600 to-emerald-500 flex items-center justify-center text-white shadow-md shadow-teal-500/20">
+                        <i class="fa-solid fa-notes-medical text-2xl"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold bg-red-100 text-brandRed px-2 py-0.5 rounded-full border border-red-200">NO. 2</span>
+                            <span class="text-xs text-slate-500 font-semibold tracking-wider uppercase">Govt Reg. Medical Store</span>
+                        </div>
+                        <h1 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
+                            M/s Bulakhidas Ambalal Shah
+                        </h1>
+                        <p class="text-xs font-medium text-teal-700 mt-0.5">Medical & Provision Stores</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav Links & Cart Trigger -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#booking" class="font-semibold text-slate-600 hover:text-teal-600 transition-colors">Quick Order</a>
+                    <a href="#catalog" class="font-semibold text-slate-600 hover:text-teal-600 transition-colors">Products</a>
+                    <a href="#about" class="font-semibold text-slate-600 hover:text-teal-600 transition-colors">Contact Us</a>
+                    
+                    <button onclick="toggleCartModal()" class="relative bg-teal-50 hover:bg-teal-100 text-teal-700 px-4 py-2 rounded-xl font-bold transition-all flex items-center gap-2 border border-teal-200">
+                        <i class="fa-solid fa-basket-shopping text-lg"></i>
+                        <span>Order List</span>
+                        <span id="cartBadge" class="bg-brandRed text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold ml-1">0</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Cart Button -->
+                <button onclick="toggleCartModal()" class="md:hidden relative p-2 text-teal-700 bg-teal-50 rounded-lg border border-teal-200">
+                    <i class="fa-solid fa-basket-shopping text-xl"></i>
+                    <span id="cartBadgeMobile" class="absolute -top-1 -right-1 bg-brandRed text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-b from-teal-50/60 via-slate-50 to-white py-12 lg:py-16 bg-grid-pattern border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <!-- Left Banner Info -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-teal-100/80 border border-teal-200 text-teal-800 text-xs font-bold px-3 py-1.5 rounded-full">
+                        <i class="fa-solid fa-shield-halved text-teal-600"></i> Trusted Healthcare Partner in Dehgam
+                    </div>
+                    
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
+                        ALL Types of <span class="text-teal-600">Ayurvedic</span> & <span class="text-brandBlue">Allopathy</span> Medicines Available
+                    </h2>
+                    
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Order your daily prescriptions, wellness supplements, and essential general provision store items directly online with quick home delivery or store pickup in Dehgam.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#booking" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-teal-600/30 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-prescription"></i> Quick WhatsApp Order
+                        </a>
+                        <a href="tel:02716232845" class="bg-white hover:bg-slate-50 text-slate-700 font-bold px-6 py-3.5 rounded-xl border border-slate-300 shadow-sm transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-phone-volume text-teal-600"></i> Call Store Office
+                        </a>
+                    </div>
+
+                    <!-- Highlight Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-200">
+                        <div>
+                            <div class="text-teal-600 font-extrabold text-lg sm:text-xl">100%</div>
+                            <div class="text-xs text-slate-500 font-medium">Genuine Medicines</div>
+                        </div>
+                        <div>
+                            <div class="text-teal-600 font-extrabold text-lg sm:text-xl">Ayurvedic</div>
+                            <div class="text-xs text-slate-500 font-medium">& Allopathy Stock</div>
+                        </div>
+                        <div>
+                            <div class="text-teal-600 font-extrabold text-lg sm:text-xl">Fast</div>
+                            <div class="text-xs text-slate-500 font-medium">Pickup & Delivery</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visiting Card Replica / Summary Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-gradient-to-br from-white via-slate-50 to-teal-50 p-6 sm:p-8 rounded-3xl border-2 border-teal-100 shadow-xl relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-5 text-teal-800 pointer-events-none">
+                            <i class="fa-solid fa-capsules text-[200px]"></i>
+                        </div>
+                        
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-teal-700 text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded">Digital Card</span>
+                                <h3 class="text-xl font-black text-slate-900 mt-2">M/s Bulakhidas Ambalal Shah</h3>
+                                <p class="text-xs font-bold text-teal-700">NO. 2 - Medical & Provision Stores</p>
+                            </div>
+                            <div class="text-teal-600 text-3xl">
+                                <i class="fa-solid fa-pills"></i>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 border border-red-200 rounded-xl p-3 mb-5">
+                            <p class="text-xs font-bold text-red-700 text-center uppercase tracking-wide">
+                                ALL Types of Ayurvedic & Allopathy Medicine Are Available
+                            </p>
+                        </div>
+
+                        <div class="space-y-3 text-sm text-slate-700">
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-user-tie text-teal-600 mt-1"></i>
+                                <div>
+                                    <p class="font-bold text-slate-900">Rajeshbhai V. Shah</p>
+                                    <a href="tel:+919825511156" class="text-xs text-teal-700 font-semibold hover:underline">+91 98255 11156</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-user-gear text-teal-600 mt-1"></i>
+                                <div>
+                                    <p class="font-bold text-slate-900">Tapan R. Shah</p>
+                                    <a href="tel:+919825135409" class="text-xs text-teal-700 font-semibold hover:underline">+91 98251 35409</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-phone text-teal-600 mt-1"></i>
+                                <div>
+                                    <p class="text-xs font-semibold text-slate-800">Office Telephone: <a href="tel:02716232845" class="text-teal-700 hover:underline">(O) 02716-232845</a></p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 pt-2 border-t border-slate-200">
+                                <i class="fa-solid fa-location-dot text-red-500 mt-1"></i>
+                                <p class="text-xs leading-relaxed font-medium text-slate-600">
+                                    20, Sardar Shopping Center, Nr. AMCO Bank, Dehgam - 382305, Dist. Gandhinagar.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: DIRECT BOOKING / PRESCRIPTION UPLOAD -->
+    <section id="booking" class="py-12 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-8">
+                <span class="text-teal-600 font-extrabold text-sm uppercase tracking-wider">Fast Medicine Order</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Book Medicine or Send Prescription</h2>
+                <p class="text-slate-500 text-sm mt-2">Fill out the form below to send an immediate order directly to our store via WhatsApp.</p>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <form id="whatsappBookingForm" onsubmit="handleWhatsAppBooking(event)" class="space-y-6">
+                    <!-- Customer Details -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Customer Name *</label>
+                            <input type="text" id="custName" required placeholder="Enter full name" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-sm bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Phone Number *</label>
+                            <input type="tel" id="custPhone" required placeholder="e.g. 98250XXXXX" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-sm bg-white">
+                        </div>
+                    </div>
+
+                    <!-- Category & Order Type -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Medicine Type Required</label>
+                            <select id="medType" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-sm bg-white">
+                                <option value="Allopathy & General">Allopathy Medicines</option>
+                                <option value="Ayurvedic Medicines">Ayurvedic Medicines</option>
+                                <option value="Both Ayurvedic & Allopathy">Both Ayurvedic & Allopathy</option>
+                                <option value="Provision & Daily Essentials">General Provision Stores</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Fulfillment Mode</label>
+                            <select id="orderMode" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-sm bg-white">
+                                <option value="Self Pickup at Store">Store Pickup (Sardar Shopping Center)</option>
+                                <option value="Home Delivery (Dehgam Area)">Home Delivery in Dehgam</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Contact Owner Choice -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Send Order To Contact</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 p-3 border rounded-xl bg-white cursor-pointer hover:border-teal-500 transition-colors">
+                                <input type="radio" name="storeOwnerPhone" value="919825511156" checked class="text-teal-600 focus:ring-teal-500">
+                                <div>
+                                    <div class="text-xs font-bold text-slate-800">Rajeshbhai Shah</div>
+                                    <div class="text-[11px] text-slate-500">+91 9825511156</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 border rounded-xl bg-white cursor-pointer hover:border-teal-500 transition-colors">
+                                <input type="radio" name="storeOwnerPhone" value="919825135409" class="text-teal-600 focus:ring-teal-500">
+                                <div>
+                                    <div class="text-xs font-bold text-slate-800">Tapanbhai Shah</div>
+                                    <div class="text-[11px] text-slate-500">+91 9825135409</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Medicine List / Details -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">List Required Medicines or Prescription Notes *</label>
+                        <textarea id="medList" rows="4" required placeholder="Type medicine names with quantity (e.g. Paracetamol 500mg - 1 Strip, Dabur Chyawanprash 500g - 1 Box)..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-sm bg-white"></textarea>
+                    </div>
+
+                    <!-- Prescription Image Note -->
+                    <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-center gap-3 text-amber-800 text-xs">
+                        <i class="fa-solid fa-camera text-base text-amber-600"></i>
+                        <span>Have a paper prescription? You can attach/photo upload directly in WhatsApp after clicking the button below!</span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-3 text-base">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i> Send Order via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT CATALOG & QUICK ADD -->
+    <section id="catalog" class="py-12 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-teal-600 font-extrabold text-sm uppercase tracking-wider">Store Catalog</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Popular Medicines & Essentials</h2>
+                    <p class="text-slate-500 text-sm mt-1">Browse common items or search to quickly add to your booking list.</p>
+                </div>
+
+                <!-- Search and Filter -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search medicines..." class="pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-teal-500 w-full sm:w-64 bg-white">
+                    </div>
+                    <select id="categoryFilter" onchange="filterProducts()" class="px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-teal-500 bg-white font-medium">
+                        <option value="ALL">All Categories</option>
+                        <option value="Allopathy">Allopathy Medicines</option>
+                        <option value="Ayurvedic">Ayurvedic Store</option>
+                        <option value="Provision">General Provision</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Javascript will render products here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & ADDRESS SECTION -->
+    <section id="about" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Location Info -->
+                <div class="lg:col-span-6 bg-slate-50 border border-slate-200 p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-teal-600 font-extrabold text-xs uppercase tracking-wider">Visit Our Store</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-4">Location & Direct Contacts</h3>
+                        
+                        <div class="space-y-4 text-sm text-slate-700 mb-6">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-shop"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-slate-900">M/s Bulakhidas Ambalal Shah - NO.2</p>
+                                    <p class="text-slate-600 text-xs mt-0.5">Medical & Provision Stores</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-slate-900">Address</p>
+                                    <p class="text-slate-600 text-xs leading-relaxed">
+                                        20, Sardar Shopping Center, Nr. AMCO Bank,<br>
+                                        Dehgam - 382305, Dist. Gandhinagar, Gujarat.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-slate-900">Phone & Mobile Support</p>
+                                    <p class="text-xs text-slate-600">Rajeshbhai V. Shah: <a href="tel:+919825511156" class="text-teal-700 font-bold hover:underline">+91 9825511156</a></p>
+                                    <p class="text-xs text-slate-600">Tapan R. Shah: <a href="tel:+919825135409" class="text-teal-700 font-bold hover:underline">+91 98251 35409</a></p>
+                                    <p class="text-xs text-slate-600">Office Landline: <a href="tel:02716232845" class="text-teal-700 font-bold hover:underline">(O) 02716-232845</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-200 flex flex-wrap gap-3">
+                        <a href="https://maps.google.com/?q=Sardar+Shopping+Center+Dehgam+Gandhinagar" target="_blank" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-diamond-turn-right"></i> Open Google Maps Directions
+                        </a>
+                        <a href="tel:02716232845" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-5 py-2.5 rounded-xl text-xs transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-phone"></i> Call Store Office
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Call To Action Card -->
+                <div class="lg:col-span-6 bg-gradient-to-br from-teal-800 to-teal-900 rounded-2xl p-6 sm:p-8 text-white flex flex-col justify-between">
+                    <div>
+                        <span class="bg-teal-700/60 text-teal-200 text-xs font-bold px-3 py-1 rounded-full border border-teal-600/50">Store Hours</span>
+                        <h3 class="text-2xl font-extrabold mt-3">Serving Dehgam & Surrounding Villages</h3>
+                        <p class="text-teal-100 text-sm mt-2 leading-relaxed">
+                            We maintain full inventory of critical allopathic, ayurvedic, OTC items, baby products, personal care, and standard grocery provision items.
+                        </p>
+
+                        <div class="mt-6 space-y-2">
+                            <div class="flex justify-between text-xs border-b border-teal-700/50 py-2">
+                                <span class="text-teal-200">Monday - Saturday</span>
+                                <span class="font-bold">8:00 AM - 9:30 PM</span>
+                            </div>
+                            <div class="flex justify-between text-xs border-b border-teal-700/50 py-2">
+                                <span class="text-teal-200">Sunday</span>
+                                <span class="font-bold">8:30 AM - 8:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-teal-800/80 p-4 rounded-xl border border-teal-700/60 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold">Need emergency medicines?</p>
+                            <p class="text-[11px] text-teal-200">Call Rajeshbhai directly on mobile</p>
+                        </div>
+                        <a href="tel:+919825511156" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-4 py-2 rounded-lg text-xs transition-colors">
+                            Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-bold text-slate-200">M/s Bulakhidas Ambalal Shah - NO.2</p>
+                <p class="mt-1 text-slate-500">20, Sardar Shopping Center, Dehgam, Dist. Gandhinagar</p>
+            </div>
+            <p class="text-slate-500">© <span id="yearSpan"></span> Medical Store Web App. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- CART / ORDER LIST MODAL -->
+    <div id="cartModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex justify-end transition-opacity">
+        <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-4 sm:p-6 bg-teal-900 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-basket-shopping text-xl text-teal-300"></i>
+                    <h3 class="font-bold text-lg">Your Selected List</h3>
+                </div>
+                <button onclick="toggleCartModal()" class="text-slate-300 hover:text-white text-xl p-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items -->
+            <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-3">
+                <!-- Cart items populated by JS -->
+            </div>
+
+            <!-- Modal Footer / Send -->
+            <div class="p-4 sm:p-6 border-t border-slate-200 bg-slate-50">
+                <button onclick="checkoutCartToForm()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-check-double"></i> Transfer List to Order Form
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING ACTION BUTTONS (MOBILE) -->
+    <div class="fixed bottom-4 right-4 z-40 flex flex-col gap-3 md:hidden">
+        <a href="https://wa.me/919825511156?text=Hello%20M/s%20Bulakhidas%20Ambalal%20Shah%20Store,%20I%20have%20an%20inquiry%20regarding%20medicine" target="_blank" class="w-13 h-13 bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-lg text-2xl hover:bg-emerald-600 transition-all p-3">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:+919825511156" class="w-13 h-13 bg-teal-600 text-white rounded-full flex items-center justify-center shadow-lg text-xl hover:bg-teal-700 transition-all p-3">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- APPLICATION LOGIC SCRIPT -->
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+        // Sample Inventory Items based on Visiting Card Store Offerings
+        const products = [
+            { id: 1, name: "Paracetamol 650mg Strips", category: "Allopathy", desc: "Pain relief and fever reduction tablets", icon: "fa-capsules", priceNote: "Allopathy" },
+            { id: 2, name: "Dabur Chyawanprash (500g)", category: "Ayurvedic", desc: "Immunity booster ayurvedic health tonic", icon: "fa-jar", priceNote: "Ayurvedic" },
+            { id: 3, name: "Zandu Balm / Tiger Balm", category: "Ayurvedic", desc: "Quick relief for headache & cold", icon: "fa-prescription-bottle", priceNote: "Ayurvedic" },
+            { id: 4, name: "Antacid & Digestion Syrup", category: "Allopathy", desc: "Relief from acidity and gas", icon: "fa-bottle-droplet", priceNote: "Allopathy" },
+            { id: 5, name: "Vitamin C & Zinc Tablets", category: "Allopathy", desc: "Daily health and immunity supplements", icon: "fa-tablets", priceNote: "Supplements" },
+            { id: 6, name: "Patanjali Aloe Vera Gel", category: "Ayurvedic", desc: "Pure skincare & healing ayurvedic gel", icon: "fa-leaf", priceNote: "Ayurvedic" },
+            { id: 7, name: "First Aid Cotton & Bandages", category: "Allopathy", desc: "Sterile medical dressing materials", icon: "fa-bandage", priceNote: "Medical Care" },
+            { id: 8, name: "Baby Care Essentials", category: "Provision", desc: "Baby powder, wipes, and gentle soaps", icon: "fa-baby", priceNote: "Provision" },
+        ];
+
+        let cart = [];
+
+        // Render Product Cards
+        function renderProducts(items) {
+            const container = document.getElementById('productGrid');
+            container.innerHTML = '';
+
+            if(items.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-8 text-slate-500">No products matching your search.</div>`;
+                return;
+            }
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-bold px-2.5 py-1 rounded-full ${item.category === 'Ayurvedic' ? 'bg-emerald-100 text-emerald-800' : item.category === 'Allopathy' ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'}">
+                                ${item.category}
+                            </span>
+                            <i class="fa-solid ${item.icon} text-teal-600 text-lg"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">${item.name}</h4>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">${item.desc}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-slate-400">Available in Stock</span>
+                        <button onclick="addToCart('${item.name}')" class="bg-teal-50 hover:bg-teal-600 hover:text-white text-teal-700 font-bold px-3 py-1.5 rounded-lg text-xs transition-colors border border-teal-200 flex items-center gap-1">
+                            <i class="fa-solid fa-plus"></i> Add to Order
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter products based on search & category
+        function filterProducts() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const catVal = document.getElementById('categoryFilter').value;
+
+            const filtered = products.filter(p => {
+                const matchesSearch = p.name.toLowerCase().includes(searchVal) || p.desc.toLowerCase().includes(searchVal);
+                const matchesCat = catVal === 'ALL' || p.category === catVal;
+                return matchesSearch && matchesCat;
+            });
+
+            renderProducts(filtered);
+        }
+
+        // Cart functions
+        function addToCart(itemName) {
+            cart.push(itemName);
+            updateCartUI();
+            
+            // Toast / Notification
+            const toast = document.createElement('div');
+            toast.className = "fixed bottom-20 right-4 bg-slate-900 text-white text-xs font-bold px-4 py-3 rounded-xl shadow-xl z-50 flex items-center gap-2";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i> Added "${itemName}" to order list!`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cartBadge').textContent = cart.length;
+            document.getElementById('cartBadgeMobile').textContent = cart.length;
+
+            const cartContainer = document.getElementById('cartItemsContainer');
+            if(cart.length === 0) {
+                cartContainer.innerHTML = `
+                    <div class="text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-2"></i>
+                        <p class="text-sm">Your order list is empty.</p>
+                        <p class="text-xs mt-1">Browse items or use the main booking form.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            cartContainer.innerHTML = '';
+            cart.forEach((item, index) => {
+                const row = document.createElement('div');
+                row.className = "bg-slate-50 border border-slate-200 p-3 rounded-xl flex items-center justify-between text-sm";
+                row.innerHTML = `
+                    <span class="font-medium text-slate-800">${item}</span>
+                    <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 p-1">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                `;
+                cartContainer.appendChild(row);
+            });
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function checkoutCartToForm() {
+            if(cart.length === 0) {
+                alert("Your cart is empty! Please add some items first.");
+                return;
+            }
+
+            const medListInput = document.getElementById('medList');
+            const currentList = medListInput.value.trim();
+            const newList = cart.join('\n- ');
+
+            medListInput.value = (currentList ? currentList + '\n\n- ' : '- ') + newList;
+            
+            toggleCartModal();
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // WhatsApp Booking Form Handler
+        function handleWhatsAppBooking(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const medType = document.getElementById('medType').value;
+            const mode = document.getElementById('orderMode').value;
+            const details = document.getElementById('medList').value.trim();
+
+            const selectedOwner = document.querySelector('input[name="storeOwnerPhone"]:checked').value;
+
+            // Format message string
+            let message = `*NEW MEDICINE ORDER*\n`;
+            message += `*Store:* M/s Bulakhidas Ambalal Shah - NO.2\n\n`;
+            message += `*Customer Name:* ${name}\n`;
+            message += `*Customer Phone:* ${phone}\n`;
+            message += `*Medicine Type:* ${medType}\n`;
+            message += `*Fulfillment:* ${mode}\n\n`;
+            message += `*Required Items / Prescription Details:*\n${details}\n\n`;
+            message += `_Sent via Bulakhidas Medical Online Booking_`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${selectedOwner}?text=${encodedMessage}`;
+
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Initial Load
+        window.onload = function() {
+            renderProducts(products);
+            updateCartUI();
+        };
+    </script>
+</body>
+</html>
